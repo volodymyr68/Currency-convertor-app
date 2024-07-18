@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <link href="../css/app.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="d-flex flex-row justify-center align-center" id="header">
+    <div class="nav-container d-flex flex-row justify-space-between align-center">
+        <a class="nav link" href="#">
+            <img alt="Logo" class="logo" src="/assets/main-logo.png">
+        </a>
+        <div class="nav-popular-currency d-flex flex-row justify-space-between align-center">
+            <div class="currency-widget d-flex justify-center align-center"></div>
+            <div class="currency-widget d-flex justify-center align-center"></div>
+            <div class="currency-widget d-flex justify-center align-center"></div>
+            <div class="currency-widget d-flex justify-center align-center"></div>
+        </div>
+        <div class="update d-flex flex-row justify-space-between align-center">
+            <div class="latest-update" id="latest-update">
+                Last update: null
+            </div>
+            <button class="btn-update" onclick="setLocalRates()">Update</button>
+        </div>
+    </div>
+</header>
+
+<main class="d-flex flex-column justify-space-around align-center" id="main">
+    <div class="convertor-container d-flex flex-row justify-space-around align-center">
+        <div class="bid-container d-flex flex-row justify-space-between align-center">
+            <label>
+                <input class="currency-input" id="user-input" placeholder="Enter amount of currency" type="text">
+            </label>
+            <label>
+                <select class="bid-currency" id="user-input-currency" name="bid-currency"></select>
+            </label>
+        </div>
+        <div>
+            <button class="btn-swap" onclick="swapInputs()">&#8646;</button>
+        </div>
+        <div class="bid-container d-flex flex-row justify-space-between align-center">
+            <label>
+                <input class="currency-input" disabled="disabled" id="user-output" type="text">
+            </label>
+            <label>
+                <select class="bid-currency" id="user-output-currency" name="bid-currency"></select>
+            </label>
+        </div>
+    </div>
+    <div class="convertor-history">
+        <div class="history-container">
+            <ul class="history-table" id="history-table">
+
+            </ul>
+        </div>
+        <div class="no-history">History is empty</div>
+    </div>
+</main>
+
+<footer id="footer">
+
+</footer>
+<script src="../js/app.js"></script>
+</body>
+</html>

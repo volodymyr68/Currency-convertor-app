@@ -31,7 +31,6 @@ export const setCurrencyName = (allRates) => {
 
 export const drawWidgets = async (widgets, headerList) => {
     if (headerList && headerList.length > 0) {
-        console.log(headerList[0].txt);
         Array.from(widgets).forEach((elem, index) => {
             elem.textContent =
                 `${headerList[index].txt} - ${headerList[index].rate.toFixed(2)}` || "";

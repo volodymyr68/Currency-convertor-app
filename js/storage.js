@@ -21,9 +21,7 @@ export const getLocalHistory = () => {
 
 export const setHeaderList = (inputResult, outputResult) => {
     let headerList = getHeaderList() || [];
-
     const resultList = getUniqueList(headerList, inputResult, outputResult);
-    console.log(resultList);
     localStorage.setItem("headerList", JSON.stringify(resultList));
 };
 

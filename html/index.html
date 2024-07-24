@@ -9,9 +9,11 @@
 
 <header class="d-flex flex-row justify-center align-center" id="header">
     <div class="nav-container d-flex flex-row justify-space-between align-center">
-        <a class="nav link" href="#">
-            <img alt="Logo" class="logo" src="/assets/main-logo2.png">
-        </a>
+        <div>
+            <a class="nav link" href="#">
+                <img alt="Logo" class="logo" src="/assets/main-logo2.png">
+            </a>
+        </div>
         <div class="nav-popular-currency d-flex flex-row justify-space-between align-center">
             <div class="currency-widget d-flex justify-center align-center"></div>
             <div class="currency-widget d-flex justify-center align-center"></div>
@@ -27,7 +29,7 @@
     </div>
 </header>
 
-<main class="d-flex flex-column justify-space-around align-center" id="main">
+<main class="d-flex flex-column justify-flex-start align-center" id="main">
     <div class="convertor-container d-flex flex-row justify-space-around align-center">
         <div class="bid-container d-flex flex-row justify-space-between align-center">
             <label>
@@ -51,16 +53,33 @@
     </div>
     <div class="convertor-history">
         <div class="history-container">
-            <ul class="history-table" id="history-table">
-
-            </ul>
+            <ul class="history-table" id="history-table"></ul>
         </div>
         <div class="no-history d-flex justify-center align-center hidden" id="no-history">History is empty</div>
     </div>
 </main>
 
-<footer id="footer" class="d-flex justify-center align-center">
-
+<footer id="footer" class="d-flex flex-row justify-space-around align-center">
+    <div class="footer-content d-flex">
+        <div class="footer-section about">
+            <h2>About Project</h2>
+            <p>This project uses API of National Bank of Ukraine.</p>
+        </div>
+        <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="https://bank.gov.ua/">NBU site</a></li>
+                <li><a href="https://bank.gov.ua/ua/open-data/api-dev">NBU API</a></li>
+                <li><a href="https://bank.gov.ua/ua/contacts">NBU Contacts</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p>Email: info@currencyconverter.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+    </div>
 </footer>
 <script type="module" src="../app.js"></script>
 </body>

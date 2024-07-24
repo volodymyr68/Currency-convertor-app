@@ -36,7 +36,12 @@ const swapButtonListener = () => {
 const updateButtonListener = () => {
     let updateBtn = document.getElementById("btn-update");
     updateBtn.addEventListener("click", async () => {
-        await refreshRatesAndDOM();
+        try{
+            await refreshRatesAndDOM();
+        }
+        catch (error){
+            console.error("Error refreshRatesAndDOM:", error);
+        }
     });
 };
 

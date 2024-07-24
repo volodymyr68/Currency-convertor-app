@@ -36,13 +36,18 @@ export const drawWidgets = async (widgets, headerList) => {
                 `${headerList[index].txt} - ${headerList[index].rate.toFixed(2)}` || "";
         });
     } else {
-        const response = await makeRequest(NBU_URL);
-        let headerList = [];
-        Array.from(widgets).forEach((elem, index) => {
-            elem.textContent = `${response[index].txt} - ${response[index].rate.toFixed(2)}`;
-            headerList.push(response[index]);
-        });
-        setDefaultHeaderList(headerList);
+        try{
+            const response = await makeRequest(NBU_URL);
+            let headerList = [];
+            Array.from(widgets).forEach((elem, index) => {
+                elem.textContent = `${response[index].txt} - ${response[index].rate.toFixed(2)}`;
+                headerList.push(response[index]);
+            });
+            setDefaultHeaderList(headerList);
+        }
+        catch (error){
+            console.error("Error fetching currency rates:", error);
+        }
     }
 };
 
@@ -54,13 +59,25 @@ export const drawHeaderDate = async () => {
     const allRates = getAllRates();
 
     if (!allRates || !lastUpdate) {
-        await refreshRatesAndDOM();
+        try{
+            await refreshRatesAndDOM();
+        }
+        catch (error){
+            console.error("Error refreshRatesAndDOM:", error);
+            return;
+        }
     } else {
         setLastUpdateElement(getLastUpdate());
         setCurrencyName(getAllRates());
     }
 
-    await drawWidgets(widgets, headerList);
+    try{
+        await drawWidgets(widgets, headerList);
+    }
+    catch (error){
+        console.error("Error drawWidgets:", error);
+    }
+
 };
 
 export const getSelectedRate = (allRates, userSelectedCurrency) => {

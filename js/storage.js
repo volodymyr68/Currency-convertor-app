@@ -35,8 +35,13 @@ export const setLastUpdate = () => {
 };
 
 export const setAllRates = async () => {
-    const rates = await makeRequest(NBU_URL);
-    localStorage.setItem("allRates", JSON.stringify(rates));
+    try{
+        const rates = await makeRequest(NBU_URL);
+        localStorage.setItem("allRates", JSON.stringify(rates));
+    }
+    catch (error){
+        console.error("Error setting rates:", error);
+    }
 };
 
 export const setLocalHistory = (input, output) => {
@@ -46,7 +51,12 @@ export const setLocalHistory = (input, output) => {
 };
 
 export const refreshRatesAndDOM = async () => {
-    await setAllRates();
+    try{
+        await setAllRates();
+    }
+    catch (error){
+        console.error("Error refreshing rates:", error);
+    }
     setLastUpdate();
     setLastUpdateElement(getLastUpdate());
     setCurrencyName(getAllRates());
